@@ -13,7 +13,7 @@ class Playlist extends React.Component {
     let userToken = this.props.loggedInUser.accessToken;
     const quizService = new Quiz();
     quizService.getSongs(code, userToken).then((response) => {
-      console.log(response.data);
+      console.log('Playlist Response Data', response.data);
       this.setState({
         playlist: response.data,
       });
@@ -22,20 +22,17 @@ class Playlist extends React.Component {
 
   render() {
     const size = {
-      width: '100%',
+      width: '50%',
       height: 300,
     };
 
     const view = 'list'; // or 'coverart'
     const theme = 'black'; // or 'white'
 
-    //  const spotifyUri =[ "spotify:track:3bWGaqVeYKMlLss40mPgNn", "spotify:track:7iN1s7xHE4ifF5povM6A48"]
-
     return (
-      <div>
-        <h1>Playlist display</h1>
-        <div>
-          {/* <ReactAudioPlayer src={this.state.playlist[index].preview_url} controls /> */}
+      <div className="playlistWrapper">
+        <h1 className="primary-title-playlist">Here's your playlist!!</h1> 
+        <div className="playlistPlayer">
           <SpotifyPlayer
             uri={this.state.playlist}
             size={size}

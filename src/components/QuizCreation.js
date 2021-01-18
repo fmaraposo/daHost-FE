@@ -1,7 +1,6 @@
 import React from 'react';
 import Quiz from '../utils/api';
 import { Redirect, withRouter } from 'react-router-dom';
-import Navbar from './Navbar/Navbar';
 
 class QuizCreation extends React.Component {
   state = {
@@ -60,15 +59,13 @@ class QuizCreation extends React.Component {
   };
 
   render() {
-    return localStorage.getItem('loggedInUser') ?  (
+    return localStorage.getItem('loggedInUser') ? (
       <div className="quizCreation">
-        <Navbar />
         <h1 className="primary-title">Let's create your quiz!</h1>
         <form onSubmit={this.handleFormSubmit}>
           <div className="title-description-section">
             <div className="question">
-              <div className="labelQuestion">
-              </div>
+              <div className="labelQuestion"></div>
               <div className="inputQuestion">
                 <input
                   className="primary-input"
@@ -82,8 +79,7 @@ class QuizCreation extends React.Component {
               </div>
             </div>
             <div className="question">
-              <div className="labelQuestion">
-              </div>
+              <div className="labelQuestion"></div>
               <div className="inputQuestion">
                 <input
                   className="primary-input"
@@ -98,12 +94,11 @@ class QuizCreation extends React.Component {
           </div>
           <div className="questions-1-2-3">
             <div className="question">
-              <div className="labelQuestion">
-              </div>
+              <div className="labelQuestion"></div>
               <div className="inputQuestion">
                 <input
                   className="primary-input"
-                  style={{width:"280px"}}
+                  style={{ width: '280px' }}
                   type="text"
                   name="question1"
                   onChange={this.handleChange}
@@ -114,12 +109,11 @@ class QuizCreation extends React.Component {
               </div>
             </div>
             <div className="question">
-              <div className="labelQuestion">
-              </div>
+              <div className="labelQuestion"></div>
               <div className="inputQuestion">
                 <input
                   className="primary-input"
-                  style={{width:"360px"}}
+                  style={{ width: '360px' }}
                   type="text"
                   name="question2"
                   onChange={this.handleChange}
@@ -130,12 +124,11 @@ class QuizCreation extends React.Component {
               </div>
             </div>
             <div className="question">
-              <div className="labelQuestion">
-              </div>
+              <div className="labelQuestion"></div>
               <div className="inputQuestion">
                 <input
                   className="primary-input"
-                  style={{width:"330px"}}
+                  style={{ width: '330px' }}
                   type="text"
                   name="question3"
                   onChange={this.handleChange}
@@ -147,47 +140,45 @@ class QuizCreation extends React.Component {
             </div>
           </div>
           <div className="questions-4-5">
-          <div className="question">
-            <div className="labelQuestion">
+            <div className="question">
+              <div className="labelQuestion"></div>
+              <div className="inputQuestion">
+                <input
+                  className="primary-input"
+                  style={{ width: '330px' }}
+                  type="text"
+                  name="question4"
+                  onChange={this.handleChange}
+                  value={this.state.questions.question4}
+                  placeholder="4.What song makes you want a beer?"
+                  required
+                />
+              </div>
             </div>
-            <div className="inputQuestion">
-              <input
-                className="primary-input"
-                style={{width:"330px"}}
-                type="text"
-                name="question4"
-                onChange={this.handleChange}
-                value={this.state.questions.question4}
-                placeholder="4.What song makes you want a beer?"
-                required
-              />
+            <div className="question">
+              <div className="labelQuestion"></div>
+              <div className="inputQuestion">
+                <input
+                  className="primary-input"
+                  style={{ width: '300px' }}
+                  type="text"
+                  name="question5"
+                  onChange={this.handleChange}
+                  value={this.state.questions.question5}
+                  placeholder=" 5. What's your favorite song?"
+                  required
+                />
+              </div>
             </div>
-          </div>
-          <div className="question">
-            <div className="labelQuestion">
-            </div>
-            <div className="inputQuestion">
-              <input
-                className="primary-input"
-                style={{width:"300px"}}
-                type="text"
-                name="question5"
-                onChange={this.handleChange}
-                value={this.state.questions.question5}
-                placeholder=" 5. What's your favorite song?"
-                required
-              />
-            </div>
-          </div>
           </div>
           <div className="form-field">
-          <button className="treat-button">Submit!</button>
+            <button className="treat-button">Submit!</button>
           </div>
         </form>
       </div>
-    )  : (
+    ) : (
       <Redirect path="/" />
-    ); 
+    );
   }
 }
 

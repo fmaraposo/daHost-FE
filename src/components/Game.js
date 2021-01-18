@@ -1,8 +1,6 @@
 import React from 'react';
 import Quiz from '../utils/api.js';
-/* import SearchBar from './SearchBar'; */
 import { withRouter } from 'react-router-dom';
-import Navbar from './Navbar/Navbar';
 
 class Game extends React.Component {
   state = {
@@ -20,7 +18,8 @@ class Game extends React.Component {
     const quizService = new Quiz();
     const quizCode = this.props.match.params.quizCode;
     quizService.getQuizQuestions(quizCode).then((response) => {
-      const gameQuestions = response.data[0];
+      console.log(response.data)
+      const gameQuestions = response.data;
       this.setState({
         questions: gameQuestions.questions,
       });
@@ -46,26 +45,29 @@ class Game extends React.Component {
     const songs = Object.values(answerSongs);
     console.log(`These songs: ${songs}`);
     quizService.addSongs(quizCode, songs).then((response) => {
-      console.log(response);
-      console.log(`These songs were submited: ${songs}`);
-      console.log(`These quizCode was submited: ${quizCode}`);
-      this.props.history.push(`/quiz-code/${quizCode}/playlist`);
+      if(localStorage.getItem('loggedInUser')) {
+        console.log(response);
+        console.log(`These songs were submited: ${songs}`);
+        console.log(`These quizCode was submited: ${quizCode}`);
+        this.props.history.push(`/quiz-code/${quizCode}/playlist`);
+      } else {
+        this.props.history.push('/quiz-code/playlist/finishedgame');
+      }
     });
   };
 
   render() {
     return (
       <div>
-        <Navbar />
         <div className="lobby-game-wrapper">
-          <h1 className="primary-title">Game</h1>
+          <h1 className="primary-title-game">Game</h1>
           <form onSubmit={this.handleFormSubmit}>
             <div className="gameQuestions">
               <form onSubmit={this.handleFormSubmit}>
                 <ul className="game-board">
                   {this.state.questions.map((question, index) => {
                     return (
-                      <div key={index}>
+                      <div className="gameQuestion" key={index}>
                         <li className="questions-game">{question}</li>
                         <input
                           className="primary-input-game"

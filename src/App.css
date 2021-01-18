@@ -82,10 +82,29 @@ body {
   font-size: 20px;
   font-weight: 300;
 }
+
+.primary-title-home {
+  color: white;
+  font-size:2.5em;
+  font-family: 'Do Hyeon', sans-serif;
+  padding: 1em;
+  margin: 0;
+}
+
 .primary-title {
   color: white;
   font-size:2.5em;
   font-family: 'Do Hyeon', sans-serif;
+  padding: 1em;
+  margin: 0;
+  border-top: 1px solid white
+}
+
+.primary-subtitle {
+  color: white;
+  font-size:1em;
+  font-family: 'Do Hyeon', sans-serif;
+  margin-top: 0.5em;
 }
 
 ::placeholder {
@@ -135,12 +154,12 @@ body {
 /* Quiz Creation */
 
 .quizCreation {
-    -webkit-animation: bgcolor 20s infinite;
-    animation: bgcolor 10s infinite;
-    -webkit-animation-direction: alternate;
-    animation-direction: alternate;
-    height: 100vh;
-    width: 100vw;
+  animation: bgcolor 10s infinite;
+  animation-direction: alternate;
+  height: 100vh;
+  width: 100vw;
+  margin-top: -4em;
+  padding-top: 4em
 }
 
 @keyframes bgcolor {
@@ -195,6 +214,8 @@ body {
   flex-direction: column;
   animation: bgcolor 10s infinite;
   animation-direction: alternate;
+  margin-top: -4em;
+  padding-top: 4em;
 }
 
 @keyframes bgcolor {
@@ -219,10 +240,20 @@ body {
   }
 }
 
-.primary-subtitle {
+.primary-title-quizcode {
+  color: white;
+  font-size:2.5em;
+  font-family: 'Do Hyeon', sans-serif;
+  padding-top: 4em;
+  margin: 0;
+  border-top: 1px solid white
+}
+
+.primary-subtitle-quizcode {
   color: white;
   font-size:1.5em;
   font-family: 'Do Hyeon', sans-serif;
+  position: relative;
 }
 
 .treat-button-quizcode {
@@ -249,15 +280,12 @@ body {
   text-align: center;
 }
 
-.quizcode-title {
-  margin-top: 4em
-}
-
 .quizcode-pastebutton {
-  margin-top: 4em;
+  margin-top: 2em;
 }
 
 /* Lobby Game */
+
 .lobby-game-wrapper {
   height: 100vh;
   width: 100vw;
@@ -266,6 +294,8 @@ body {
   flex-direction: column;
   animation: bgcolor 10s infinite;
   animation-direction: alternate;
+  margin-top: -4em;
+  padding-top: 7em
 }
 
 .users-lobby {
@@ -276,24 +306,75 @@ body {
   display: flex;
 }
 
-/* Game */
+/* Lobby Game */
 
 .wrapper-lobbygame {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: -3em;
+  border-top: 1px solid white;
 }
 
 .users-ul {
   display: flex;
+  flex-wrap: wrap
 }
 
 .users-lobby {
-  margin-right: 0.5em
+  margin-right: 0.5em;
+  margin-top: 0.5em;
+  background: #28CCBE;
+  border-radius: 1em;
+  padding: 0.5em
+}
+
+.lobby-game-primary-title {
+  padding-top: 4em;
+}
+
+.primary-title-lobbygame {
+  color: white;
+  font-size:2.5em;
+  font-family: 'Do Hyeon', sans-serif;
+  padding: 1em;
+  margin: 0;
+}
+
+.treat-button-lobbygame {
+  font-family: 'Do Hyeon', sans-serif;
+  font-size: 4vmin;
+  appearance: none;
+  background: linear-gradient(to bottom, #F46001, #E14802);
+  border: none;
+  color: #FFF;
+  border-radius: 2em;
+  padding: .6em 1.5em;
+  overflow: hidden;
+  user-select: none;
+  cursor: pointer;
+  z-index: 1;
+  box-shadow: 0 0 1em rgba(white, .2); 
+  transition: transform .1s cubic-bezier(.5, 0, .5, 1);
+  box-shadow: 0.2s;
+  margin: auto;
+  margin-top: 10%;
+  height: 48%;
+  font-size: 20px;
+  text-align: center;
 }
 
 /* Game */
+
+.primary-title-game {
+  color: white;
+  font-size:2.5em;
+  font-family: 'Do Hyeon', sans-serif;
+  padding: 1em;
+  margin-top: -1em;
+  border-top: 1px solid white
+}
 
 .questions-game {
   font-family: 'Do Hyeon', sans-serif;
@@ -322,4 +403,60 @@ body {
   text-align: center;
   font-size: 20px;
   font-weight: 300;
+}
+
+.gameQuestion {
+  margin-right: 1em;
+}
+
+/* Playlist Final */
+
+.playlistWrapper {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  animation: bgcolor 10s infinite;
+  animation-direction: alternate;
+  margin-top: -4em;
+  padding-top: 7em
+}
+
+.primary-title-playlist {
+  color: white;
+  font-size: 2.5em;
+  font-family: 'Do Hyeon', sans-serif;
+  padding: 2em;
+  margin-top: -1em;
+  border-top: 1px solid white;
+}
+
+/* Playlist Not User */
+
+.playlistNotUserWrapper {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  animation: bgcolor 10s infinite;
+  animation-direction: alternate;
+  margin-top: -4em;
+  padding-top: 7em
+}
+
+.primary-title-playlistNotUserWrapper {
+  color: white;
+  font-size: 2.5em;
+  font-family: 'Do Hyeon', sans-serif;
+  padding: 2em;
+  margin-top: -1em;
+  border-top: 1px solid white;
+}
+
+.primary-subtitle-playlistNotUserWrapper {
+  color: white;
+  font-size: 2em;
+  font-family: 'Do Hyeon', sans-serif;
 }

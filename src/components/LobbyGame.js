@@ -1,6 +1,5 @@
 import React from 'react';
 import Quiz from '../utils/api';
-import Navbar from './Navbar/Navbar';
 import '../App.css';
 
 class LobbyGame extends React.Component {
@@ -14,12 +13,12 @@ class LobbyGame extends React.Component {
       const quizService = new Quiz();
       const quizCode = this.props.match.params.quizCode;
       quizService.getQuizUsers(quizCode).then((response) => {
-        const game = response.data[0];
+        const game = response.data;
         this.setState({
           users: game.users,
         });
       });
-    }, 500);
+    }, 2000);
   }
 
   handleButton = () => {
@@ -31,12 +30,9 @@ class LobbyGame extends React.Component {
   render() {
     return this.state.users ? (
       <div className="lobby-game-wrapper">
-        <div>
-          <Navbar />
-        </div>
         <div className="wrapper-lobbygame">
-          <div>
-            <h1 className="primary-title">Waiting for all players...</h1>
+          <div className="lobby-game-primary-title">
+            <h1 className="primary-title-lobbygame">Waiting for all players...</h1>
           </div>
           <div>
             <div className="users-display">
@@ -51,7 +47,7 @@ class LobbyGame extends React.Component {
               </ul>
             </div>
             <div className="form-field">
-              <button className="treat-button" onClick={this.handleButton}>
+              <button className="treat-button-lobbygame" onClick={this.handleButton}>
                 Start Game
               </button>
             </div>

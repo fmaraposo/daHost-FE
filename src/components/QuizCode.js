@@ -2,7 +2,7 @@ import React from 'react';
 /* import ReactDOM from 'react-dom'; */
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { withRouter } from 'react-router-dom';
-import Navbar from './Navbar/Navbar';
+
 
 class QuizCode extends React.Component {
   state = {
@@ -18,10 +18,9 @@ class QuizCode extends React.Component {
   render() {
     return (
       <div className="quizcode-wrapper">
-        <Navbar />
         <div className="quizcode-title">
-          <h1 className="primary-title">Here's your quiz code! </h1>
-          <h2 className="primary-subtitle">Share it with your friends! </h2>
+          <h1 className="primary-title-quizcode">Here's your quiz code! </h1>
+          <h2 className="primary-subtitle-quizcode">Share it with your friends! </h2>
         </div>
         <div className="quizcode-wrapper">
           <div className="quizcode-pastebutton">
@@ -45,7 +44,7 @@ class QuizCode extends React.Component {
             </CopyToClipboard>
 
             {this.state.copied ? (
-              <span style={{ color: 'red' }}>Copied.</span>
+              <span style={{ color: 'white', fontFamily: 'Do Hyeon, sans-serif'}}>  Copied.</span>
             ) : null}
           </div>
           <div className="form-field">

@@ -1,13 +1,15 @@
 import React from 'react';
 import './App.css';
-import {/*  Redirect, */ Route, Switch } from 'react-router-dom';
+import { /*  Redirect, */ Route, Switch } from 'react-router-dom';
 import AuthService from './utils/auth';
 import Home from './components/Home';
 import QuizCreation from './components/QuizCreation';
 import QuizCode from './components/QuizCode';
-import LobbyGame from './components/LobbyGame'
+import LobbyGame from './components/LobbyGame';
 import Game from './components/Game';
 import PlaylistDisplay from './components/Playlist';
+import Navbar from './components/Navbar/Navbar';
+import PlaylistNotUser from './components/PlaylistNotUser';
 
 class App extends React.Component {
   state = {
@@ -38,26 +40,105 @@ class App extends React.Component {
     return (
       <div className="App">
         <Switch>
-          <Route exact path="/" render = {() => {
-              return <Home loggedInUser={this.state.loggedInUser} />
-              }}
-            />
           <Route
-            path="/quiz-creation"
-            render={() => {  
-                return <QuizCreation loggedInUser={this.state.loggedInUser} />;
+            exact
+            path="/"
+            render={() => {
+              return <Home loggedInUser={this.state.loggedInUser} />;
             }}
           />
-          <Route exact path="/quiz-code/:quizCode" component={QuizCode} />
-          <Route path="/quiz-code/lobbygame/:quizCode" 
+          <Route
+            path="/quiz-creation"
+            render={() => {
+              return (
+                <div>
+                  <Navbar
+                    loggedInUser={this.state.loggedInUser}
+                    setCurrentUser={this.setCurrentUser}
+                  />
+                  <QuizCreation loggedInUser={this.state.loggedInUser} />
+                </div>
+              );
+            }}
+          />
+          <Route
+            exact
+            path="/quiz-code/:quizCode"
+            render={() => {
+              return (
+                <div>
+                  <Navbar
+                    loggedInUser={this.state.loggedInUser}
+                    setCurrentUser={this.setCurrentUser}
+                  />
+                  <QuizCode loggedInUser={this.state.loggedInUser} />
+                </div>
+              );
+            }}
+          />
+          <Route
+            path="/quiz-code/lobbygame/:quizCode"
             render={(props) => {
-              return <LobbyGame {...props}  loggedInUser={localStorage.getItem('loggedInUser')} />
-            } }/>
-          <Route path="/quiz-code/game/:quizCode" 
+              return (
+                <div>
+                  <Navbar
+                    loggedInUser={this.state.loggedInUser}
+                    setCurrentUser={this.setCurrentUser}
+                  />
+                  <LobbyGame
+                    {...props}
+                    loggedInUser={localStorage.getItem('loggedInUser')}
+                    setCurrentUser={this.setCurrentUser}
+                  />
+                </div>
+              );
+            }}
+          />
+          <Route
+            path="/quiz-code/game/:quizCode"
             render={(props) => {
-              return <Game {...props}  loggedInUser={localStorage.getItem('loggedInUser')} />
-            } }/>
-            <Route path="/quiz-code/:quizCode/playlist" render ={() => {return <PlaylistDisplay loggedInUser={this.state.loggedInUser} />}}  />
+              return (
+                <div>
+                  <Navbar
+                    loggedInUser={this.state.loggedInUser}
+                    setCurrentUser={this.setCurrentUser}
+                  />
+                  <Game
+                    {...props}
+                    loggedInUser={localStorage.getItem('loggedInUser')}
+                  />
+                </div>
+              );
+            }}
+          />
+          <Route
+            path="/quiz-code/playlist/finishedgame"
+            render={() => {
+              return (
+                <div>
+                  <Navbar
+                    loggedInUser={this.state.loggedInUser}
+                    setCurrentUser={this.setCurrentUser}
+                  />
+                  <PlaylistNotUser />
+                </div>
+              );
+            }}
+          />
+          <Route
+            path="/quiz-code/:quizCode/playlist"
+            render={() => {
+              return (
+                <div>
+                  <Navbar
+                    loggedInUser={this.state.loggedInUser}
+                    setCurrentUser={this.setCurrentUser}
+                  />
+                  <PlaylistDisplay loggedInUser={this.state.loggedInUser} />
+                </div>
+              );
+            }}
+          />
           <Route
             path="/login-spotify"
             render={() => {
